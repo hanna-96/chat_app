@@ -1,0 +1,18 @@
+type Query {
+  messages: [Message!]
+  # returns an array of message objects
+}
+
+type Mutation {
+  addMessage(text: String!): Message
+}
+# subscriptions do not return value , they notify client whenever event occureed
+# they can generate multiple values over time
+type Subscription {
+  messageAdded: Message
+}
+type Message {
+  id: ID!
+  user: String!
+  text: String!
+}
